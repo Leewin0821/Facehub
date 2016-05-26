@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Reflux from 'reflux';
 import {
   View,
   StyleSheet,
@@ -7,6 +8,13 @@ import {
 } from 'react-native';
 
 export default class UserCard extends Component {
+  // mixins: [Reflux.listenTo(UserStore, 'onStatusChange')],
+  // getInitialState: function() {
+  //   return {users: []};
+  // },
+  // onStatusChange: function() {
+  //   this.setState(users: UserStore.users);
+  // },
   render() {
     return (
       <View style={[style.card, style.shadow]}>
