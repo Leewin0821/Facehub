@@ -7,15 +7,24 @@ import {
 } from 'react-native';
 
 export default class UserCard extends Component {
+  componentWillMount() {
+    this.user = this.props.user;
+  }
+
   render() {
     return (
       <View style={[style.card, style.shadow]}>
         <Image style={style.avatar}
-        source={{uri: 'http://www.bmwusa.com/bmw/api/assets/images/BMWi/BMWi8/BMWi_i8_module4_B4.jpg?v=5fc09bfa5efbb09cf3cd0e73e2d9aad7'}}/>
+        source={{uri:this.user.photo}}/>
         <View style={style.textWrapper}>
-          <Text style={style.name}>Leewin</Text>
-          <Text style={style.job}>Boss</Text>
-          <Text style={style.email}>lwzhang@thoughtworks.com</Text>
+          <View style={style.nameContainer}>
+            <Text style={style.name}>{this.user.name}</Text>
+            <View style={style.tagContainer}>
+              <Text style={style.officeTag}>{this.user.office}</Text>
+            </View>
+          </View>
+          <Text style={style.job}>{this.user.title} on {this.user.project}</Text>
+          <Text style={style.email}>{this.user.email}</Text>
         </View>
       </View>
     );

@@ -15,26 +15,44 @@ import {
 } from 'react-native';
 import NavBar from './Components/NavBar';
 import UserCard from './Components/UserCard';
+import {connect} from 'react-redux';
+import {userListAction} from './Actions/userListAction'
 
-
-export default class Facehub extends Component {
+class App extends Component {
   constructor() {
     super();
     this.dataSource = new ListView.DataSource({rowHasChanged: (r1, r2)=> r1 !== r2});
     StatusBar.setBarStyle('light-content');
   }
+  componentWillMount() {
+    this.props.fetchUser();
+  }
   render() {
-    const ds = this.dataSource.cloneWithRows([0,1,2,3,4,5,6,7,8,9,10]);
+    const ds = this.dataSource.cloneWithRows(this.props.userList);
     return (
       <View style={styles.container}>
         <NavBar />
         <ListView
         dataSource={ds}
-        renderRow={()=><UserCard />}/>
+        renderRow={(user)=><UserCard user={user} />}/>
       </View>
     );
   }
 }
+
+function mapProps(state) {
+  return {
+    userList: state
+  }
+}
+
+function mapDispatch(dispatch) {
+  return {
+    fetchUser: () => dispatch(userListAction())
+  }
+}
+
+export default connect(mapProps, mapDispatch)(App);
 
 const styles = StyleSheet.create({
   container: {
