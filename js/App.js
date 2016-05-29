@@ -33,6 +33,7 @@ class App extends Component {
       <View style={styles.container}>
         <NavBar />
         <ListView
+        enableEmptySections = {true}
         dataSource={ds}
         renderRow={(user)=><UserCard user={user} />}/>
       </View>
