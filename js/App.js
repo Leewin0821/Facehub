@@ -16,7 +16,7 @@ import {
 import NavBar from './Components/NavBar';
 import UserCard from './Components/UserCard';
 import {connect} from 'react-redux';
-import {userListAction} from './Actions/userListAction'
+import {UserListAction} from './Actions/UserListAction'
 
 class App extends Component {
   constructor() {
@@ -48,7 +48,7 @@ function mapProps(state) {
 
 function mapDispatch(dispatch) {
   return {
-    fetchUser: () => dispatch(userListAction())
+    fetchUser: () => dispatch(UserListAction())
   }
 }
 
