@@ -26,7 +26,7 @@ const mockUserlist = [
 ]
 
 export const FETCH_USER = 'FETCH_USER'
-export function UserListAction(data = mockUserlist) {
+export function userListAction(data = mockUserlist) {
   return {
     type: FETCH_USER,
     payload: data
