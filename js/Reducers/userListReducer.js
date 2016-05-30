@@ -1,10 +1,10 @@
-import {FETCH_USER} from '../Actions/UserListAction'
+import { FETCH_USER } from '../Actions/UserListAction'
 
-export function UserListReducer(state = [], action) {
+export function userListReducer(state = [], action) {
   switch (action.type) {
     case FETCH_USER:
       return [...action.payload]
     default:
-      return state;
+      return state
   }
 }

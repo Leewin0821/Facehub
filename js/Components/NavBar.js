@@ -1,17 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react'
 import {
   StyleSheet,
   Text,
-  View,
-} from 'react-native';
-
-export default function NavBar() {
-  return (
-    <View style={styles.navBar}>
-      <Text style={styles.navBarTitle}>ThoughtWorkers</Text>
-    </View>
-  )
-}
+  View
+} from 'react-native'
 
 const styles = StyleSheet.create({
   navBar: {
@@ -25,12 +17,20 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 2
     }
   },
   navBarTitle: {
     color: 'white',
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   }
-});
+})
+
+export default function NavBar() {
+  return (
+    <View style={styles.navBar}>
+      <Text style={styles.navBarTitle}>ThoughtWorkers</Text>
+    </View>
+  )
+}
